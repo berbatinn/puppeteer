@@ -1,37 +1,38 @@
 const puppeteer = require('puppeteer');
-
-setTimeout(() => {
-
-
-    (async () => {
-        //   const browser = await puppeteer.launch();
-        const browser = await puppeteer.launch({ headless: false });
-        const page = await browser.newPage();
-
-        await page.goto('https://developer.chrome.com/');
+const index2 = require('./index2');
+index2.test();
+// setTimeout(() => {
 
 
-        // Set screen size
-        await page.setViewport({ width: 1080, height: 1024 });
+//     (async () => {
+//         //   const browser = await puppeteer.launch();
+//         const browser = await puppeteer.launch({ headless: false });
+//         const page = await browser.newPage();
 
-        // Type into search box
-        await page.type('.search-box__input', 'automate beyond recorder');
+//         await page.goto('https://developer.chrome.com/');
 
-        // Wait and click on first result
-        const searchResultSelector = '.search-box__link';
-        await page.waitForSelector(searchResultSelector);
-        await page.click(searchResultSelector);
 
-        // Locate the full title with a unique string
-        const textSelector = await page.waitForSelector(
-            'text/Customize and automate'
-        );
-        const fullTitle = await textSelector.evaluate(el => el.textContent);
+//         // Set screen size
+//         await page.setViewport({ width: 1080, height: 1024 });
 
-        // Print the full title
-        console.log('The title of this blog post is "%s".', fullTitle);
+//         // Type into search box
+//         await page.type('.search-box__input', 'automate beyond recorder');
 
-        //   await browser.close();
-    })();
+//         // Wait and click on first result
+//         const searchResultSelector = '.search-box__link';
+//         await page.waitForSelector(searchResultSelector);
+//         await page.click(searchResultSelector);
 
-}, 0);
+//         // Locate the full title with a unique string
+//         const textSelector = await page.waitForSelector(
+//             'text/Customize and automate'
+//         );
+//         const fullTitle = await textSelector.evaluate(el => el.textContent);
+
+//         // Print the full title
+//         console.log('The title of this blog post is "%s".', fullTitle);
+
+//         //   await browser.close();
+//     })();
+
+// }, 0);
