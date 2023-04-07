@@ -7,11 +7,25 @@ setTimeout(() => {
         // เปิด page ขึ้นมา
         const page = await browser.newPage();
         // เข้าเว็บซักเว็บนึง
-        await page.goto('https://getbootstrap.com/docs/5.0/forms/select/');
+        await page.goto('https://shopee.co.th/');
 
+        let searchResultSelector = ".language-selection__list > .language-selection__list-item:nth-child(1) > button";
+        await page.waitForSelector(searchResultSelector);
+        await page.click(searchResultSelector);
 
-        const f = await page.$('.form-select')
-        await f.select("2")
+        await page.mouse.click(10, 10);
+
+        searchResultSelector = "header  .navbar__links .navbar__link--login";
+        await page.waitForSelector(searchResultSelector);
+        await page.click(searchResultSelector);
+        //  searchResultSelector = ".home-popup__close-area";
+        // // await page.waitForSelector(searchResultSelector);
+        // // await page.click(searchResultSelector);
+        // await page.evaluate(() => {
+        //     document.querySelector(searchResultSelector).click();
+        //   });
+        // const f = await page.$('.form-select')
+        // await f.select("2")k
         // await page.select('#cars', 'Audi');
 
         // const n = await page.$("table > tbody > .trline:nth-child(2) > .em")
